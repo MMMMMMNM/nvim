@@ -1,8 +1,8 @@
-# AstroNvim Template
+# my nvim config
 
-**NOTE:** This is for AstroNvim v4+
+**NOTE:** This is AstroNvim v4+ + my config (99% of them come from AstroNvim v4+)
 
-A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
+A template for getting started with https://github.com/MMMMMMNM/nvim
 
 ## 🛠️ Installation
 
