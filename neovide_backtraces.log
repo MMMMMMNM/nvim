@@ -1,0 +1,26 @@
+2024-07-10 12:32:46 - Neovide panicked with the message 'Failed to find any suitable Direct3D 12 adapters: Error { code: HRESULT(0x887A0002), message: "未找到对象。如果调用 IDXGIFactory::EnumAdaptes，则没有具有指定序号的适配器。" }'. (File: src\renderer\d3d.rs; Line: 127, Column: 14)
+   0: <unknown>
+   1: <unknown>
+   2: <unknown>
+   3: <unknown>
+   4: <unknown>
+   5: <unknown>
+   6: <unknown>
+   7: <unknown>
+   8: <unknown>
+   9: <unknown>
+  10: <unknown>
+  11: <unknown>
+  12: <unknown>
+  13: <unknown>
+  14: CallWindowProcW
+  15: DispatchMessageW
+  16: Z20DispatchMessageWHookPK6tagMSG
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: <unknown>
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+
