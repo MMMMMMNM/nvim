@@ -2,8 +2,18 @@
 
 **NOTE:** This is AstroNvim v4+ + my config (99% of them come from AstroNvim v4+)
 
-A template for getting started with https://github.com/MMMMMMNM/nvim
-
+##   Directory 
+  lua
+  .neoconf.json
+  .stylua.toml
+  init.lua
+  lazy-lock.json
+  neovide_backtraces.log
+󰉢  neovim.yml
+󰪷  README.md
+  selene.toml
+## Plugins
+commd :Lazy or into lazy-lock.json
 ## 🛠️ Installation
 
 #### Make a backup of your current nvim and shared folder
