@@ -3,6 +3,11 @@
 
 ---@type LazySpec
 return {
+
+ {
+    "luozhiya/fittencode.nvim",
+    config = function() require("fittencode").setup() end,
+  },
   {
     "OXY2DEV/markview.nvim",
     ft = "markdown",
