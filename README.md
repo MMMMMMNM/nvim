@@ -1,6 +1,6 @@
 # my nvim config
 
-**NOTE:** This is AstroNvim v4+ + my config (99% of them come from AstroNvim v4+)
+**NOTE:** This is AstroNvim v4+ + my config (99% of them come from AstroNvim v4++)
 
 ##   Directory 
   lua
