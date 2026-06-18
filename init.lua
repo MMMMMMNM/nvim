@@ -1,0 +1,6 @@
+require("config.options")
+require("config.keymap")
+require("config.autocmd")
+require("config.lsp-config")
+require("config.usercommand")
+require("index")
