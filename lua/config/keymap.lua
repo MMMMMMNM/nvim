@@ -5,8 +5,10 @@ end
 map("n", "<leader>ow", "<cmd>vsplit<cr>", { desc = " Vsplit" }) -- vsplit
 map("n", "<leader>os", "<cmd>split<cr>", { desc = " Split" }) -- split
 ------------------------------Line Move config
-map({ "n", "v" }, "<A-k>", "<cmd>m .-2<cr>==", { silent = true, desc = "Move line up" }) -- Move line up
-map({ "n", "v" }, "<A-j>", "<cmd>m .+1<cr>==", { silent = true, desc = "Move line down" }) -- Move line down
+map({ "n" }, "<A-k>", "<cmd>m .-2<cr>==", { silent = true, desc = "Move line up" }) -- Move line up
+map({ "n" }, "<A-j>", "<cmd>m .+1<cr>==", { silent = true, desc = "Move line down" }) -- Move line down
+map({ "v" }, "<A-k>", "<cmd>m '<-2<cr>gv=gv", { silent = true, desc = "Move line up" }) -- Move line up
+map({ "v" }, "<A-j>", "<cmd>m '>+1<cr>gv=gv", { silent = true, desc = "Move line up" }) -- Move line up
 ------------------------------Only use hjkl Move
 map("i", "jk", "<Esc>")
 map({ "n", "i", "v" }, "<Left>", "<Nop>")

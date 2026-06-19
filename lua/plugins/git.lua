@@ -3,7 +3,7 @@ vim.pack.add({
 	"https://github.com/kdheepak/lazygit.nvim",
 	"https://github.com/nvim-lua/plenary.nvim",
 })
-require("gitsigns").setup({
+local opt = {
 	signs_staged_enable = false,
 	signcolumn = false,
 	numhl = true,
@@ -58,4 +58,5 @@ require("gitsigns").setup({
 	-- map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
 	-- map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
 	--end,
-})
+}
+require("gitsigns").setup(opt)

@@ -17,8 +17,3 @@ autocmd("LspAttach", {
 		-- whatever other lsp config you want
 	end,
 })
--- autocmd("BufEnter", {
--- 	callback = function()
--- 		vim.cmd("Neotree close")
--- 	end,
--- })
