@@ -1,4 +1,8 @@
-vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim" })
+vim.pack.add({
+	"https://github.com/lewis6991/gitsigns.nvim",
+	"https://github.com/kdheepak/lazygit.nvim",
+	"https://github.com/nvim-lua/plenary.nvim",
+})
 require("gitsigns").setup({
 	signs_staged_enable = false,
 	signcolumn = false,
