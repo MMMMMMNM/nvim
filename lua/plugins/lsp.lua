@@ -1,4 +1,7 @@
-vim.pack.add({ "https://github.com/rachartier/tiny-inline-diagnostic.nvim", "https://github.com/j-hui/fidget.nvim" })
+vim.pack.add({
+	"https://github.com/rachartier/tiny-inline-diagnostic.nvim",
+	"https://github.com/j-hui/fidget.nvim",
+})
 require("tiny-inline-diagnostic").setup({
 	-- Style preset for diagnostic messages
 	-- Available options:

@@ -1,4 +1,8 @@
 {
+  "comment": {
+    "body": "----------------------------------------$1----------------------------------------",
+    "prefix": "comment"
+  },
   "config": {
     "body": [
       "config = function()",
@@ -7,9 +11,13 @@
     ],
     "prefix": "config"
   },
-  "comment": {
-    "body": "----------------------------------------$1----------------------------------------",
-    "prefix": "comment"
+  "gh": {
+    "body": "https://github.com/",
+    "prefix": "gh"
+  },
+  "keymap(normal)": {
+    "body": "vim.keymap.set(\"${1:mode}\",\"${2:key}\",\"${3:cmd}\",{desc = \"$4\"})",
+    "prefix": "keymap(normal)"
   },
   "opts": {
     "body": "opts = {}",
@@ -22,9 +30,5 @@
       "}"
     ],
     "prefix": "return (new plugins)"
-  },
-  "keymap(normal)": {
-    "body": "vim.keymap.set(\"${1:mode}\",\"${2:key}\",\"${3:cmd}\",{desc = \"$4\"})",
-    "prefix": "keymap(normal)"
   }
 }

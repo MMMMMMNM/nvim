@@ -6,6 +6,7 @@ require("conform").setup({
 		-- Conform will run multiple formatters sequentially
 		rust = { "rustfmt", lsp_format = "fallback" },
 		cpp = { "clang-format" },
+		cmake = { "cmakelang" },
 		json = { "clang-format" },
 		asm = { "asmfmt" },
 		markdown = { "mdformat" },

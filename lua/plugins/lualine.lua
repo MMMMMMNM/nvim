@@ -2,6 +2,7 @@ vim.pack.add({
 	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/nvim-tree/nvim-web-devicons",
 	"https://github.com/nickjvandyke/opencode.nvim",
+	"https://github.com/stevearc/overseer.nvim",
 })
 require("lualine").setup({
 	options = {
@@ -46,6 +47,7 @@ require("lualine").setup({
 			"lsp_progress",
 		},
 		lualine_x = {
+			"overseer",
 			"encoding",
 			"fileformat",
 			{

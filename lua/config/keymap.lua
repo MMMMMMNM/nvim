@@ -4,6 +4,11 @@ end
 ------------------------------split config
 map("n", "<leader>ow", "<cmd>vsplit<cr>", { desc = " Vsplit" }) -- vsplit
 map("n", "<leader>os", "<cmd>split<cr>", { desc = " Split" }) -- split
+------------------------------Buffer
+map("n", "<leader>obd", "<cmd>BufferDelete<cr>", { desc = "Buffer Delete" })
+map("n", "<leader>obl", "<cmd>BufferPickDelete<cr>", { desc = "Buffer Pick Delete" })
+map("n", "<leader>obp", "<cmd>BufferPick<cr>", { desc = "Buffer Pick" })
+map("n", "<leader>obn", "<cmd>BufferNext<cr>", { desc = "Buffer Next" })
 ------------------------------Line Move config
 map({ "n" }, "<A-k>", "<cmd>m .-2<cr>==", { silent = true, desc = "Move line up" }) -- Move line up
 map({ "n" }, "<A-j>", "<cmd>m .+1<cr>==", { silent = true, desc = "Move line down" }) -- Move line down
