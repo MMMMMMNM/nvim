@@ -7,7 +7,7 @@ vim.keymap.set("n", "<leader>rr", "<cmd>OverseerRun<cr>", { desc = "List oversee
 vim.keymap.set("n", "<leader>ra", "<cmd>OverseerTaskAction<cr>", { desc = "Toggle overseer tasks action" })
 local overseer = require("overseer")
 overseer.setup({
-	dap = false,
+	dap = true,
 	output = {
 		-- Use a terminal buffer to display output. If false, a normal buffer is used
 		use_terminal = true,

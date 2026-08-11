@@ -2,7 +2,7 @@
 function lsp(Name)
 	vim.lsp.enable(Name)
 end
-lsp("lua_ls")
+lsp("lua-language-server")
 lsp("clangd")
 lsp("asm-lsp")
 lsp("pyright")

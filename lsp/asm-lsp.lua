@@ -1,5 +1,5 @@
 return {
 	cmd = { "asm-lsp" },
-	filetypes = { "asm", "vmasm" },
+	filetypes = { "s", "asm", "vmasm" },
 	root_markers = { ".asm-lsp.toml", ".git" },
 }

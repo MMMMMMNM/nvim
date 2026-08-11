@@ -221,9 +221,10 @@ require("fidget").setup({
 			zindex = 45, -- Stacking priority of the notification window
 			max_width = 0, -- Maximum width of the notification window
 			max_height = 0, -- Maximum height of the notification window
-			x_padding = 1, -- Padding from right edge of window boundary
-			y_padding = 0, -- Padding from bottom edge of window boundary
-			align = "bottom", -- How to align the notification window
+			x_padding = 1, -- Padding from edge of window boundary
+			y_padding = 0, -- Padding from top/bottom edge of window boundary
+			align = "bottom", -- How to align the notification window vertically
+			h_align = "right", -- How to align the notification window horizontally
 			relative = "editor", -- What the notification window position is relative to
 			tabstop = 8, -- Width of each tab character in the notification window
 			avoid = {}, -- Filetypes the notification window should avoid
@@ -231,20 +232,9 @@ require("fidget").setup({
 		},
 	},
 
-	-- Options related to integrating with other plugins
-	integration = {
-		["nvim-tree"] = {
-			enable = true, -- Integrate with nvim-tree/nvim-tree.lua (if installed)
-			-- DEPRECATED; use notification.window.avoid = { "NvimTree" }
-		},
-		["xcodebuild-nvim"] = {
-			enable = true, -- Integrate with wojciech-kulik/xcodebuild.nvim (if installed)
-			-- DEPRECATED; use notification.window.avoid = { "TestExplorer" }
-		},
-	},
-
 	-- Options related to logging
 	logger = {
+		enable = true, -- Whether to enable file logging
 		level = vim.log.levels.WARN, -- Minimum logging level
 		max_size = 10000, -- Maximum log file size, in KB
 		float_precision = 0.01, -- Limit the number of decimals displayed for floats

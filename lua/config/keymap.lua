@@ -2,8 +2,8 @@ local map = function(Mode, Key, Cmd, Desc)
 	vim.keymap.set(Mode, Key, Cmd, Desc)
 end
 ------------------------------split config
-map("n", "<leader>ow", "<cmd>vsplit<cr>", { desc = " Vsplit" }) -- vsplit
-map("n", "<leader>os", "<cmd>split<cr>", { desc = " Split" }) -- split
+map("n", "<leader>ow", "<cmd>vsplit<cr>", { desc = " Vsplit" }) -- vsplit
+map("n", "<leader>os", "<cmd>split<cr>", { desc = " Split" }) -- split
 ------------------------------Buffer
 map("n", "<leader>obd", "<cmd>BufferDelete<cr>", { desc = "Buffer Delete" })
 map("n", "<leader>obl", "<cmd>BufferPickDelete<cr>", { desc = "Buffer Pick Delete" })
@@ -16,6 +16,7 @@ map({ "v" }, "<A-k>", "<cmd>m '<-2<cr>gv=gv", { silent = true, desc = "Move line
 map({ "v" }, "<A-j>", "<cmd>m '>+1<cr>gv=gv", { silent = true, desc = "Move line up" }) -- Move line up
 ------------------------------Only use hjkl Move
 map("i", "jk", "<Esc>")
+map("i", "kj", "<Esc>")
 map({ "n", "i", "v" }, "<Left>", "<Nop>")
 map({ "n", "i", "v" }, "<Right>", "<Nop>")
 map({ "n", "i", "v" }, "<Up>", "<Nop>")
