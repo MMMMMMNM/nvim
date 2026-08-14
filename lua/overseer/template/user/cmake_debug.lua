@@ -5,8 +5,6 @@ return {
 		local dir = vim.fs.joinpath(vim.fn.getcwd(), "debug")
 		if vim.uv.fs_stat(file) then
 			if vim.fn.isdirectory(dir) == 0 then
-				vim.fn.mkdir(dir, "p")
-				print("create debug")
 				cmd = { "cmake", "-DCMAKE_BUILD_TYPE=debug", "-B", "debug" }
 			else
 				cmd = { "cmake", "--build", "debug" }

@@ -5,8 +5,6 @@ return {
 		local dir = vim.fs.joinpath(vim.fn.getcwd(), "build")
 		if vim.uv.fs_stat(file) then
 			if vim.fn.isdirectory(dir) == 0 then
-				vim.fn.mkdir(dir, "p")
-				print("create build")
 				cmd = { "cmake", "-B", "build" }
 			else
 				cmd = { "cmake", "--build", "build" }
