@@ -5,8 +5,9 @@ vim.pack.add({
 	"https://github.com/HiPhish/rainbow-delimiters.nvim",
 	"https://github.com/folke/flash.nvim",
 	"https://github.com/rubiin/highlighturl.nvim",
-	"https://github.com/karb94/neoscroll.nvim",
-	-- "https://github.com/y3owk1n/undo-glow.nvim",
+	"https://github.com/yaocccc/visual-multi.nvim",
+	"https://github.com/celeste3z/celeste_comment.nvim",
+	{ src = "https://github.com/RaafatTurki/hex.nvim" },
 })
 require("which-key").setup({
 	preset = "helix",
@@ -50,29 +51,50 @@ require("highlighturl").setup({
 	-- Suppress toggle notifications
 	silent = false,
 })
-require("neoscroll").setup({
-	mappings = { -- Keys to be mapped to their corresponding default scrolling animation
-		"<C-u>",
-		"<C-d>",
-		"<C-b>",
-		"<C-f>",
-		"<C-y>",
-		"<C-e>",
-		"zt",
-		"zz",
-		"zb",
+require("visual-multi").setup({
+	wrap = true,
+	case_sensitive = true,
+	mappings = {
+		find_next = "<C-n>",
+		select_all = "<C-d>",
+		select_left = "<C-Left>",
+		select_right = "<C-Right>",
+		add_cursor_up = "<C-Up>",
+		add_cursor_down = "<C-Down>",
+		add_cursor = "<C-x>",
+		add_cursor_word = "<C-w>",
+		skip_region = false,
+		remove_region = "q",
+		insert_paste = "<C-v>",
+		undo = "u",
+		redo = "<C-r>",
 	},
-	hide_cursor = true, -- Hide cursor while scrolling
-	stop_eof = true, -- Stop at <EOF> when scrolling downwards
-	respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-	cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-	duration_multiplier = 1.0, -- Global duration multiplier
-	easing = "linear", -- Default easing function
-	pre_hook = nil, -- Function to run before the scrolling animation starts
-	post_hook = nil, -- Function to run after the scrolling animation ends
-	performance_mode = false, -- Disable "Performance Mode" on all buffers.
-	ignored_events = { -- Events ignored while scrolling
-		"WinScrolled",
-		"CursorMoved",
+	highlights = {
+		cursor = { bg = "#87afff", fg = "#4e4e4e" },
+		cursor_active = { bg = "#dfdf87", fg = "#4e4e4e" },
+		insert = { bg = "#4c4e50" },
+		insert_active = { bg = "#4c4e50" },
+		selection = { bg = "#005faf" },
+		selection_active = { bg = "#87afff", fg = "#4e4e4e" },
 	},
+})
+require("hex").setup({
+
+	-- cli command used to dump hex data
+	dump_cmd = "xxd -g 1 -u",
+
+	-- cli command used to assemble from hex data
+	assemble_cmd = "xxd -r",
+
+	-- function that runs on BufReadPre to determine if it's binary or not
+	is_file_binary_pre_read = function()
+		-- logic that determines if a buffer contains binary data or not
+		-- must return a bool
+	end,
+
+	-- function that runs on BufReadPost to determine if it's binary or not
+	is_file_binary_post_read = function()
+		-- logic that determines if a buffer contains binary data or not
+		-- must return a bool
+	end,
 })

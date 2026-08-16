@@ -3,6 +3,9 @@ vim.pack.add({
 	"https://github.com/MunifTanjim/nui.nvim",
 	"https://github.com/nvim-lua/plenary.nvim",
 })
+vim.keymap.set("n", "<leader>ols", "<cmd>Leet submit<cr>", { desc = "leetcode submit" })
+vim.keymap.set("n", "<leader>old", "<cmd>Leet desc<cr>", { desc = "leetcode desc" })
+vim.keymap.set("n", "<leader>olr", "<cmd>Leet run<cr>", { desc = "leetcode run" })
 require("leetcode").setup({
 	---@type string
 	arg = "leetcode.nvim",
@@ -18,7 +21,7 @@ require("leetcode").setup({
 
 	---@type lc.storage
 	storage = {
-		home = vim.fn.stdpath("data") .. "/leetcode",
+		home = "~/Documents/leetcode",
 		cache = vim.fn.stdpath("cache") .. "/leetcode",
 	},
 })

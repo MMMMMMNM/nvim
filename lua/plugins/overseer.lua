@@ -2,8 +2,9 @@ vim.pack.add({
 	"https://github.com/stevearc/overseer.nvim",
 	"https://github.com/nvim-lua/plenary.nvim.git",
 })
-vim.keymap.set("n", "<leader>rt", "<cmd>OverseerToggle<cr>", { desc = "Toggle overseer tasks list" })
+vim.keymap.set("n", "<F4>", "<cmd>OverseerRun<cr>", { desc = "List overseer templates" })
 vim.keymap.set("n", "<leader>rr", "<cmd>OverseerRun<cr>", { desc = "List overseer templates" })
+vim.keymap.set("n", "<leader>rt", "<cmd>OverseerToggle<cr>", { desc = "Toggle overseer tasks list" })
 vim.keymap.set("n", "<leader>ra", "<cmd>OverseerTaskAction<cr>", { desc = "Toggle overseer tasks action" })
 local overseer = require("overseer")
 overseer.setup({

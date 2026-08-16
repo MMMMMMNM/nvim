@@ -1,50 +1,99 @@
 vim.pack.add({
-	"https://github.com/numToStr/Comment.nvim",
+	"https://github.com/celeste3z/celeste_comment.nvim",
 	"https://github.com/folke/todo-comments.nvim",
-	"https://github.com/nvim-lua/plenary.nvim",
 })
-require("Comment").setup({
-	---Add a space b/w comment and the line
-	padding = true,
-	---Whether the cursor should stay at its position
-	sticky = true,
-	---Lines to be ignored while (un)comment
-	ignore = nil,
-	---LHS of toggle mappings in NORMAL mode
-	toggler = {
-		---Line-comment toggle keymap
-		line = "gcc",
-		---Block-comment toggle keymap
-		block = "gbc",
-	},
-	---LHS of operator-pending mappings in NORMAL and VISUAL mode
-	opleader = {
-		---Line-comment keymap
-		line = "gc",
-		---Block-comment keymap
-		block = "gb",
-	},
-	---LHS of extra mappings
-	extra = {
-		---Add comment on the line above
-		above = "gcO",
-		---Add comment on the line below
-		below = "gco",
-		---Add comment at the end of line
-		eol = "gcA",
-	},
-	---Enable keybindings
-	---NOTE: If given `false` then the plugin won't create any mappings
+require("celeste_comment").setup({
+	-- Restore cursor position after commenting.
+	keep_cursor = true,
+
+	-- Restore selection after commenting.
+	-- See `:help celeste_comment-config-keep_selection`
+	-- Possible values: "never" | "accurate" | "expand_block"
+	keep_selection = "never",
+
+	-- Insert space between comment marker and text.
+	insert_space = true,
+
+	-- Place comment at start of line, skip indent alignment
+	line_comment_no_indent = false,
+
+	-- Match comment markers case-insensitively (e.g. `@REM` vs `@rem` vs `@rEm`)
+	case_insensitive = false,
+
+	-- Trim whitespace before detecting block tokens.
+	block_relaxed_detect = true,
+
+	-- Max lines to search for block comment pairs.
+	block_textobj_nlines = 200,
+
+	-- How to handle empty lines during comment toggle.
+	-- See `:help celeste_comment-config-ignore_empty_lines` for more details
+	-- Possible values: "never" | "mixed" | "always"
+	ignore_empty_lines = "always",
+
+	-- Fallback to block comment when line comment wraps.
+	-- See `:help celeste_comment-config-fallback_to_block` for more details
+	-- Possible values: "never" | "if_line_cms_wrapped"
+	fallback_to_block = "if_line_cms_wrapped",
+
+	-- Log level (nvim-0.13+). Ignored on older versions.
+	log_level = vim.log.levels.OFF,
+
+	-- Comment string configuration.
+	cms_confs = nil,
+
 	mappings = {
-		---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
-		basic = true,
-		---Extra mapping; `gco`, `gcO`, `gcA`
-		extra = true,
+		-- Line comment by motion (n)
+		line_toggle = "gc",
+		-- Line comment current line (n)
+		line_toggle_cur = "gcc",
+		-- Line comment visual selection (x)
+		line_toggle_visual = "gc",
+		-- Insert mode line toggle (i), example `{"<M-/>", "<M-_>"}`
+		line_toggle_insert = "",
+
+		-- Block comment by motion (n, x)
+		block_toggle = "gb",
+		-- Block comment current line (n)
+		block_toggle_cur = "gbc",
+		-- Block comment visual selection (x)
+		block_toggle_visual = "gb",
+
+		-- Linewise textobject (o)
+		line_textobject = "gc",
+		-- Blockwise textobject (o)
+		block_textobject = "gb",
+		-- Auto textobject (o, x), example 'ga'
+		auto_textobject = "",
+		-- Auto uncomment (n), example `gcu`
+		uncomment_auto = "",
+
+		-- Insert comment below (n), example `gco`
+		line_add_below = "",
+		-- Insert comment above (n), example `gcO`
+		line_add_above = "",
+		-- Insert comment at end of line (n), example `gcA`
+		line_add_eol = "",
+
+		-- Invert comment per line (n, x), example `gcI`
+		line_invert = "",
+		-- Force add line comment (n, x), example `gCC`
+		line_force_add = "",
+		-- Force remove line comment (n, x), example `gCU`
+		line_force_remove = "",
+
+		-- Cursor sticky dot-repeat
+		dot_repeat = ".",
 	},
-	---Function to call before (un)comment
-	pre_hook = nil,
-	---Function to call after (un)comment
-	post_hook = nil,
+
+	hooks = {
+		-- Called before commit edits, receives context
+		pre_commit_edits = nil,
+		-- Called after commit edits, receives context
+		post_commit_edits = nil,
+		-- Custom comment string resolver function
+		cms_conf_resolver = nil,
+	},
 })
 require("todo-comments").setup({
 	signs = true, -- show icons in the signs column
