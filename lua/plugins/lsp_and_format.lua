@@ -1,6 +1,18 @@
+----------------------------------------Install Lsp and Format----------------------------------------
+vim.pack.add({ "https://github.com/williamboman/mason.nvim" })
+require("mason").setup({
+	ui = {
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
+		},
+	},
+})
+----------------------------------------Lsp dependencies----------------------------------------
 vim.pack.add({
-	"https://github.com/rachartier/tiny-inline-diagnostic.nvim",
-	"https://github.com/j-hui/fidget.nvim",
+	"https://github.com/rachartier/tiny-inline-diagnostic.nvim", -- diagnostics hint
+	"https://github.com/j-hui/fidget.nvim", -- Lsp status
 })
 require("tiny-inline-diagnostic").setup({
 	-- Style preset for diagnostic messages
@@ -240,5 +252,23 @@ require("fidget").setup({
 		float_precision = 0.01, -- Limit the number of decimals displayed for floats
 		-- Where Fidget writes its logs to
 		path = string.format("%s/fidget.nvim.log", vim.fn.stdpath("cache")),
+	},
+})
+----------------------------------------Conform----------------------------------------
+vim.pack.add({ "https://github.com/stevearc/conform.nvim" })
+require("conform").setup({
+	formatters_by_ft = {
+		["_"] = { "trim_whitespace" },
+		["*"] = { "codespell" },
+		lua = { "stylua" },
+		rust = { "rustfmt", lsp_format = "fallback" },
+		cpp = { "clang-format", args = { "-style=LLVM" } },
+		json = { "clang-format" },
+		asm = { "asmfmt" },
+		markdown = { "mdformat" },
+		python = { "black" },
+		bash = { "beautysh" },
+		zsh = { "beautysh" },
+		cmake = { "cmake_format" },
 	},
 })

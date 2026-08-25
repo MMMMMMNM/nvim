@@ -1,14 +1,17 @@
 vim.pack.add({
-	"https://github.com/folke/which-key.nvim",
-	"https://github.com/nvzone/showkeys",
-	"https://github.com/echasnovski/mini.pairs",
-	"https://github.com/HiPhish/rainbow-delimiters.nvim",
-	"https://github.com/folke/flash.nvim",
-	"https://github.com/rubiin/highlighturl.nvim",
-	"https://github.com/yaocccc/visual-multi.nvim",
-	"https://github.com/celeste3z/celeste_comment.nvim",
-	{ src = "https://github.com/RaafatTurki/hex.nvim" },
+	"https://github.com/folke/which-key.nvim", -- show keys to do
+	"https://github.com/nvzone/showkeys", -- show keys
+	"https://github.com/echasnovski/mini.pairs", -- match character
+	"https://github.com/HiPhish/rainbow-delimiters.nvim", -- make brackets show rainbow
+	"https://github.com/folke/flash.nvim", -- fast location character
+	"https://github.com/yaocccc/visual-multi.nvim", -- visual multi cursor
+	{ src = "https://github.com/RaafatTurki/hex.nvim" }, --show file helix
 })
+----------------------------------------Flash----------------------------------------
+require("flash").setup()
+----------------------------------------Key----------------------------------------
+require("showkeys").setup({ timeout = 1, maxkeys = 5 })
+
 require("which-key").setup({
 	preset = "helix",
 	spec = {
@@ -21,6 +24,7 @@ require("which-key").setup({
 		{ "<leader>t", group = "<Terminal>", icon = " " },
 	},
 })
+--------------------------------------------------------------------------------
 require("mini.pairs").setup({
 	modes = { insert = true, command = true, terminal = false },
 	-- skip autopair when next character is one of these
@@ -33,24 +37,7 @@ require("mini.pairs").setup({
 	-- better deal with markdown code blocks
 	markdown = true,
 })
-require("showkeys").setup({ timeout = 1, maxkeys = 5 })
-require("flash").setup()
-require("highlighturl").setup({
-	-- Filetypes to skip highlighting
-	ignore_filetypes = { "qf", "help", "NvimTree", "gitcommit" },
-
-	-- URL highlight color (supports hex colors)
-	highlight_color = "#8caaee",
-
-	-- Debounce delay (ms) for TextChanged events (improves performance)
-	debounce_ms = 100,
-
-	-- Whether to underline URLs
-	underline = true,
-
-	-- Suppress toggle notifications
-	silent = false,
-})
+--------------------------------------------------------------------------------
 require("visual-multi").setup({
 	wrap = true,
 	case_sensitive = true,
@@ -78,6 +65,7 @@ require("visual-multi").setup({
 		selection_active = { bg = "#87afff", fg = "#4e4e4e" },
 	},
 })
+--------------------------------------------------------------------------------
 require("hex").setup({
 
 	-- cli command used to dump hex data
@@ -98,3 +86,9 @@ require("hex").setup({
 		-- must return a bool
 	end,
 })
+----------------------------------------FzfLua----------------------------------------
+vim.pack.add({ "https://github.com/ibhagwan/fzf-lua", "https://github.com/nvim-tree/nvim-web-devicons" })
+require("fzf-lua").setup()
+----------------------------------------Toggleterm----------------------------------------
+vim.pack.add({ { src = "https://github.com/akinsho/toggleterm.nvim" } })
+require("toggleterm").setup({})

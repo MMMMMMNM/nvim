@@ -7,6 +7,7 @@ lsp("clangd")
 lsp("asm-lsp")
 lsp("pyright")
 lsp("bash-language-server")
+lsp("neocmake")
 -------------lsp config
 vim.diagnostic.config({
 	underline = true,

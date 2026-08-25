@@ -7,8 +7,10 @@ vim.pack.add({
 	"https://github.com/nvim-zh/colorful-winsep.nvim",
 	"https://github.com/rachartier/tiny-cmdline.nvim",
 	"https://github.com/lukas-reineke/indent-blankline.nvim",
+	"https://github.com/rubiin/highlighturl.nvim", -- highlight url
 })
 --require("dropbar").setup()
+----------------------------------------BufferLine----------------------------------------
 require("barbar").setup({
 	-- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
 	animation = true,
@@ -60,6 +62,7 @@ require("barbar").setup({
 		visible = { modified = { buffer_number = false } },
 	},
 })
+----------------------------------------Notify----------------------------------------
 vim.notify = require("notify")
 require("notify").setup({
 	background_colour = "#000000",
@@ -82,6 +85,7 @@ require("notify").setup({
 	timeout = 5000,
 	top_down = true,
 })
+----------------------------------------Colorful window separator----------------------------------------
 require("colorful-winsep").setup({
 	-- choose between "single", "rounded", "bold" and "double".
 	border = "bold",
@@ -116,6 +120,7 @@ require("colorful-winsep").setup({
 		},
 	},
 })
+----------------------------------------Cmdline----------------------------------------
 vim.o.cmdheight = 0
 require("tiny-cmdline").setup({
 	-- Cmdline window width
@@ -155,6 +160,7 @@ require("tiny-cmdline").setup({
 	-- Optional callback invoked after every reposition
 	on_reposition = require("tiny-cmdline").adapters.blink,
 })
+----------------------------------------Highlight----------------------------------------
 local highlight = {
 	"RainbowRed",
 	"RainbowYellow",
@@ -179,3 +185,138 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
 end)
 
 require("ibl").setup({ indent = { highlight = highlight } })
+----------------------------------------Highlight URL----------------------------------------
+require("highlighturl").setup({
+	-- Filetypes to skip highlighting
+	ignore_filetypes = { "qf", "help", "NvimTree", "gitcommit" },
+
+	-- URL highlight color (supports hex colors)
+	highlight_color = "#8caaee",
+
+	-- Debounce delay (ms) for TextChanged events (improves performance)
+	debounce_ms = 100,
+
+	-- Whether to underline URLs
+	underline = true,
+
+	-- Suppress toggle notifications
+	silent = false,
+})
+----------------------------------------Treesitter----------------------------------------
+vim.pack.add({
+	{ src = "https://github.com/romus204/tree-sitter-manager.nvim" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
+})
+
+require("tree-sitter-manager").setup({
+	-- Default Options
+	ensure_installed = { "c", "cpp", "json", "toml" }, -- list of parsers to install at the start of a neovim session
+	border = "rounded", -- border style for the window (e.g. "rounded", "single"), if nil, use the default border style defined by 'vim.o.winborder'. See :h 'winborder' for more info.
+	auto_install = true, -- if enabled, install missing parsers when editing a new file
+	highlight = true, -- treesitter highlighting is enabled by default
+	languages = {}, -- override or add new parser sources
+	-- parser_dir = vim.fn.stdpath("data") .. "/site/parser",
+	-- query_dir = vim.fn.stdpath("data") .. "/site/queries",
+})
+require("treesitter-context").setup({
+	enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+	multiwindow = false, -- Enable multiwindow support.
+	max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
+	min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+	line_numbers = true,
+	multiline_threshold = 20, -- Maximum number of lines to show for a single context
+	trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
+	mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
+	-- Separator between context and content. Should be a single character string, like '-'.
+	-- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+	separator = nil,
+	zindex = 20, -- The Z-index of the context window
+	on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
+})
+----------------------------------------LuaLine----------------------------------------
+vim.pack.add({
+	"https://github.com/nvim-lualine/lualine.nvim",
+	"https://github.com/nvim-tree/nvim-web-devicons",
+	"https://github.com/nickjvandyke/opencode.nvim",
+	"https://github.com/stevearc/overseer.nvim",
+})
+require("lualine").setup({
+	options = {
+		extensions = {},
+		icons_enabled = true,
+		theme = "auto",
+		component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
+		disabled_filetypes = {
+			statusline = {},
+			winbar = {},
+			"neo-tree",
+		},
+		ignore_focus = {},
+		always_divide_middle = true,
+		always_show_tabline = true,
+		globalstatus = false,
+		refresh = {
+			statusline = 1000,
+			tabline = 1000,
+			winbar = 1000,
+			refresh_time = 16, -- ~60fps
+			events = {
+				"WinEnter",
+				"BufEnter",
+				"BufWritePost",
+				"SessionLoadPost",
+				"FileChangedShellPost",
+				"VimResized",
+				"Filetype",
+				"CursorMoved",
+				"CursorMovedI",
+				"ModeChanged",
+			},
+		},
+	},
+	sections = {
+		lualine_a = { "mode" },
+		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_c = {
+			"filename",
+			"lsp_progress",
+		},
+		lualine_x = {
+			"overseer",
+			"encoding",
+			"fileformat",
+			{
+				"lsp_status",
+				icon = "", -- f013
+				symbols = {
+					-- Standard unicode symbols to cycle through for LSP progress:
+					spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+					-- Standard unicode symbol for when LSP is done:
+					done = "✓",
+					-- Delimiter inserted between LSP names:
+					separator = " ",
+				},
+				-- List of LSP names to ignore (e.g., `null-ls`):
+				ignore_lsp = {},
+				-- Display the LSP name
+				show_name = true,
+			},
+			"filetype",
+		},
+		lualine_y = { "progress" },
+		lualine_z = { "location", require("opencode").statusline },
+	},
+	inactive_sections = {
+		lualine_a = {},
+		lualine_b = {},
+		lualine_c = { "filename" },
+		lualine_x = { "location" },
+		lualine_y = {},
+		lualine_z = {},
+	},
+	tabline = {},
+	winbar = {},
+	inactive_winbar = {},
+	extensions = {},
+})

@@ -2,7 +2,6 @@ vim.pack.add({
 	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
 	"https://github.com/HakonHarnes/img-clip.nvim",
 	"https://github.com/3rd/image.nvim",
-	--"https://github.com/jakobkhansen/journal.nvim",
 })
 require("render-markdown").setup({
 	completions = { lsp = { enabled = true }, blink = { enabled = true } },
