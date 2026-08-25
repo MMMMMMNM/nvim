@@ -105,3 +105,44 @@ require("aerial").setup({
 		vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
 	end,
 })
+------------------------------------------Window Resize----------------------------------------
+vim.pack.add({
+	{ src = "https://github.com/ChausseBenjamin/resizer.nvim" },
+})
+
+local res = require("resizer")
+res.setup({
+	trigger = "<leader>r",
+	-- the defaults hardcodes hi using: `{ fg = '#coffee' }`
+	-- but you can remain theme-agnosting using the following:
+	hi = { link = "@markup.strong" },
+	keymaps = {
+		["q"] = res.quit, -- (esc always works and can't be unset...)
+		-- Coarse adjustments
+		["h"] = function()
+			res.left(10)
+		end,
+		["j"] = function()
+			res.down(7)
+		end,
+		["k"] = function()
+			res.up(7)
+		end,
+		["l"] = function()
+			res.right(10)
+		end,
+		-- Fine adjustments
+		["H"] = function()
+			res.left(1)
+		end,
+		["J"] = function()
+			res.down(1)
+		end,
+		["K"] = function()
+			res.up(1)
+		end,
+		["L"] = function()
+			res.right(1)
+		end,
+	},
+})
