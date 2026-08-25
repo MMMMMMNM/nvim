@@ -1,32 +1,34 @@
 local map = function(Mode, Key, Cmd, Desc)
 	vim.keymap.set(Mode, Key, Cmd, Desc)
 end
-------------------------------split config
+----------------------------------------Split config----------------------------------------
 map("n", "<leader>ow", "<cmd>vsplit<cr>", { desc = " Vsplit" }) -- vsplit
 map("n", "<leader>os", "<cmd>split<cr>", { desc = " Split" }) -- split
-------------------------------Buffer
+----------------------------------------Buffer----------------------------------------
 map("n", "<leader>obd", "<cmd>BufferDelete<cr>", { desc = "Buffer Delete" })
 map("n", "<leader>obl", "<cmd>BufferPickDelete<cr>", { desc = "Buffer Pick Delete" })
 map("n", "<leader>obp", "<cmd>BufferPick<cr>", { desc = "Buffer Pick" })
 map("n", "<leader>obn", "<cmd>BufferNext<cr>", { desc = "Buffer Next" })
-------------------------------Line Move config
+----------------------------------------Line Move----------------------------------------
 map({ "n" }, "<A-k>", "<cmd>m .-2<cr>==", { silent = true, desc = "Move line up" }) -- Move line up
 map({ "n" }, "<A-j>", "<cmd>m .+1<cr>==", { silent = true, desc = "Move line down" }) -- Move line down
 map({ "v" }, "<A-k>", "<cmd>m '<-2<cr>gv=gv", { silent = true, desc = "Move line up" }) -- Move line up
 map({ "v" }, "<A-j>", "<cmd>m '>+1<cr>gv=gv", { silent = true, desc = "Move line up" }) -- Move line up
-------------------------------Only use hjkl Move
+----------------------------------------Use hjkl Move----------------------------------------
 map("i", "jk", "<Esc>")
 map("i", "kj", "<Esc>")
 map({ "n", "i", "v" }, "<Left>", "<Nop>")
 map({ "n", "i", "v" }, "<Right>", "<Nop>")
 map({ "n", "i", "v" }, "<Up>", "<Nop>")
 map({ "n", "i", "v" }, "<Down>", "<Nop>")
-------------------------------Windows Move
+----------------------------------------Window Move----------------------------------------
 map({ "n", "i", "v" }, "<C-k>", "<C-w>k")
 map({ "n", "i", "v" }, "<C-j>", "<C-w>j")
 map({ "n", "i", "v" }, "<C-l>", "<C-w>l")
 map({ "n", "i", "v" }, "<C-h>", "<C-w>h")
------------------------------Flash
+----------------------------------------Outline----------------------------------------
+map("n", "<leader>oa", "<cmd>AerialToggle!<CR>", { desc = "Outline" })
+----------------------------------------Flash----------------------------------------
 map({ "n", "x", "o" }, "s", function()
 	require("flash").jump()
 end, { desc = "Flash" })
@@ -42,7 +44,7 @@ end, { desc = "Treesitter Search" })
 map({ "o", "x" }, "<c-s>", function()
 	require("flash").treesitter_search()
 end, { desc = "Treesitter Search" })
----------------------------------Scissors
+----------------------------------------Scissors----------------------------------------
 map("n", "<leader>se", function()
 	require("scissors").editSnippet()
 end, { desc = "Snippet: Edit" })
