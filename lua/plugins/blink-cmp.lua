@@ -1,8 +1,8 @@
 vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
-	"https://github.com/rafamadriz/friendly-snippets",
-	"https://github.com/xzbdmw/colorful-menu.nvim",
-	"https://github.com/chrisgrieser/nvim-scissors",
+	{ src = "https://github.com/rafamadriz/friendly-snippets" },
+	{ src = "https://github.com/xzbdmw/colorful-menu.nvim" },
+	{ src = "https://github.com/chrisgrieser/nvim-scissors" },
 })
 require("colorful-menu").setup({
 	ls = {

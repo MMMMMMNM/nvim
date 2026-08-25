@@ -1,5 +1,5 @@
 ----------------------------------------Install Lsp and Format----------------------------------------
-vim.pack.add({ "https://github.com/williamboman/mason.nvim" })
+vim.pack.add({ { src = "https://github.com/williamboman/mason.nvim" } })
 require("mason").setup({
 	ui = {
 		icons = {
@@ -11,8 +11,8 @@ require("mason").setup({
 })
 ----------------------------------------Lsp dependencies----------------------------------------
 vim.pack.add({
-	"https://github.com/rachartier/tiny-inline-diagnostic.nvim", -- diagnostics hint
-	"https://github.com/j-hui/fidget.nvim", -- Lsp status
+	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" }, -- diagnostics hint
+	{ src = "https://github.com/j-hui/fidget.nvim" }, -- Lsp status
 })
 require("tiny-inline-diagnostic").setup({
 	-- Style preset for diagnostic messages
@@ -255,7 +255,7 @@ require("fidget").setup({
 	},
 })
 ----------------------------------------Conform----------------------------------------
-vim.pack.add({ "https://github.com/stevearc/conform.nvim" })
+vim.pack.add({ { src = "https://github.com/stevearc/conform.nvim" } })
 require("conform").setup({
 	formatters_by_ft = {
 		["_"] = { "trim_whitespace" },

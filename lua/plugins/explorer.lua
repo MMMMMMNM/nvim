@@ -3,13 +3,13 @@ vim.pack.add({
 		src = "https://github.com/nvim-neo-tree/neo-tree.nvim",
 		version = vim.version.range("3"),
 	},
+	{ src = "https://github.com/stevearc/oil.nvim" },
 	-- dependencies
-	"https://github.com/nvim-lua/plenary.nvim",
-	"https://github.com/MunifTanjim/nui.nvim",
-	"https://github.com/stevearc/oil.nvim",
-	"https://github.com/nvim-tree/nvim-web-devicons",
-	"https://github.com/JezerM/oil-lsp-diagnostics.nvim",
-	"https://github.com/benomahony/oil-git.nvim",
+	{ src = "https://github.com/nvim-lua/plenary.nvim" },
+	{ src = "https://github.com/MunifTanjim/nui.nvim" },
+	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
+	{ src = "https://github.com/JezerM/oil-lsp-diagnostics.nvim" },
+	{ src = "https://github.com/benomahony/oil-git.nvim" },
 })
 require("neo-tree").setup({
 	open_files_do_not_replace_types = { "terminal", "trouble", "qf" },

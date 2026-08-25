@@ -1,6 +1,6 @@
 vim.pack.add({
-	"https://github.com/celeste3z/celeste_comment.nvim",
-	"https://github.com/folke/todo-comments.nvim",
+	{ src = "https://github.com/celeste3z/celeste_comment.nvim" },
+	{ src = "https://github.com/folke/todo-comments.nvim" },
 })
 require("celeste_comment").setup({
 	-- Restore cursor position after commenting.

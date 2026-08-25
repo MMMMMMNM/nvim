@@ -1,11 +1,12 @@
 vim.pack.add({
-	"https://github.com/folke/which-key.nvim", -- show keys to do
-	"https://github.com/nvzone/showkeys", -- show keys
-	"https://github.com/echasnovski/mini.pairs", -- match character
-	"https://github.com/HiPhish/rainbow-delimiters.nvim", -- make brackets show rainbow
-	"https://github.com/folke/flash.nvim", -- fast location character
-	"https://github.com/yaocccc/visual-multi.nvim", -- visual multi cursor
+	{ src = "https://github.com/folke/which-key.nvim" }, -- show keys to do
+	{ src = "https://github.com/nvzone/showkeys" }, -- show keys
+	{ src = "https://github.com/echasnovski/mini.pairs" }, -- match character
+	{ src = "https://github.com/HiPhish/rainbow-delimiters.nvim" }, -- make brackets show rainbow
+	{ src = "https://github.com/folke/flash.nvim" }, -- fast location character
+	{ src = "https://github.com/yaocccc/visual-multi.nvim" }, -- visual multi cursor
 	{ src = "https://github.com/RaafatTurki/hex.nvim" }, --show file helix
+	{ src = "https://github.com/stevearc/aerial.nvim" }, -- code outline
 })
 ----------------------------------------Flash----------------------------------------
 require("flash").setup()
@@ -87,8 +88,12 @@ require("hex").setup({
 	end,
 })
 ----------------------------------------FzfLua----------------------------------------
-vim.pack.add({ "https://github.com/ibhagwan/fzf-lua", "https://github.com/nvim-tree/nvim-web-devicons" })
+vim.pack.add({
+	{ src = "https://github.com/ibhagwan/fzf-lua" },
+	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
+})
 require("fzf-lua").setup()
 ----------------------------------------Toggleterm----------------------------------------
 vim.pack.add({ { src = "https://github.com/akinsho/toggleterm.nvim" } })
 require("toggleterm").setup({})
+----------------------------------------Aerial----------------------------------------

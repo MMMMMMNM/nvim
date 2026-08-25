@@ -1,7 +1,7 @@
 vim.pack.add({
-	"https://github.com/lewis6991/gitsigns.nvim",
-	"https://github.com/kdheepak/lazygit.nvim",
-	"https://github.com/nvim-lua/plenary.nvim",
+	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
+	{ src = "https://github.com/kdheepak/lazygit.nvim" },
+	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 })
 local opt = {
 	signs_staged_enable = false,

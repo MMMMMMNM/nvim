@@ -1,13 +1,13 @@
 vim.pack.add({
-	"https://github.com/romgrk/barbar.nvim",
-	"https://github.com/lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
-	"https://github.com/nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
-	"https://github.com/Bekaboo/dropbar.nvim",
+	{ src = "https://github.com/romgrk/barbar.nvim" },
+	{ src = "https://github.com/lewis6991/gitsigns.nvim" }, -- OPTIONAL: for git status
+	{ src = "https://github.com/nvim-tree/nvim-web-devicons" }, -- OPTIONAL: for file icons
+	{ src = "https://github.com/Bekaboo/dropbar.nvim" },
 	{ src = "https://github.com/rcarriga/nvim-notify", name = "notify" },
-	"https://github.com/nvim-zh/colorful-winsep.nvim",
-	"https://github.com/rachartier/tiny-cmdline.nvim",
-	"https://github.com/lukas-reineke/indent-blankline.nvim",
-	"https://github.com/rubiin/highlighturl.nvim", -- highlight url
+	{ src = "https://github.com/nvim-zh/colorful-winsep.nvim" },
+	{ src = "https://github.com/rachartier/tiny-cmdline.nvim" },
+	{ src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
+	{ src = "https://github.com/rubiin/highlighturl.nvim" }, -- highlight url
 })
 --require("dropbar").setup()
 ----------------------------------------BufferLine----------------------------------------
@@ -235,10 +235,10 @@ require("treesitter-context").setup({
 })
 ----------------------------------------LuaLine----------------------------------------
 vim.pack.add({
-	"https://github.com/nvim-lualine/lualine.nvim",
-	"https://github.com/nvim-tree/nvim-web-devicons",
-	"https://github.com/nickjvandyke/opencode.nvim",
-	"https://github.com/stevearc/overseer.nvim",
+	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
+	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
+	{ src = "https://github.com/nickjvandyke/opencode.nvim" },
+	{ src = "https://github.com/stevearc/overseer.nvim" },
 })
 require("lualine").setup({
 	options = {

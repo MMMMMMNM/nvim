@@ -1,6 +1,6 @@
 vim.pack.add({
-	"https://github.com/stevearc/overseer.nvim",
-	"https://github.com/nvim-lua/plenary.nvim.git",
+	{ src = "https://github.com/stevearc/overseer.nvim" },
+	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 })
 local overseer = require("overseer")
 overseer.setup({

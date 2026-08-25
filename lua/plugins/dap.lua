@@ -1,9 +1,9 @@
 vim.pack.add({
-	"https://github.com/mfussenegger/nvim-dap",
-	"https://github.com/rcarriga/nvim-dap-ui",
-	"https://github.com/nvim-neotest/nvim-nio",
-	"https://github.com/theHamsta/nvim-dap-virtual-text",
-	"https://github.com/Jorenar/nvim-dap-disasm",
+	{ src = "https://github.com/mfussenegger/nvim-dap" },
+	{ src = "https://github.com/rcarriga/nvim-dap-ui" },
+	{ src = "https://github.com/nvim-neotest/nvim-nio" },
+	{ src = "https://github.com/theHamsta/nvim-dap-virtual-text" },
+	{ src = "https://github.com/Jorenar/nvim-dap-disasm" },
 })
 require("nvim-dap-virtual-text").setup()
 local dap, dapui = require("dap"), require("dapui")
