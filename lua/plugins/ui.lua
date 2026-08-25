@@ -8,6 +8,7 @@ vim.pack.add({
 	{ src = "https://github.com/rachartier/tiny-cmdline.nvim" },
 	{ src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
 	{ src = "https://github.com/rubiin/highlighturl.nvim" }, -- highlight url
+	{ src = "https://github.com/ya2s/nvim-cursorline" },
 })
 --require("dropbar").setup()
 ----------------------------------------BufferLine----------------------------------------
@@ -201,6 +202,21 @@ require("highlighturl").setup({
 
 	-- Suppress toggle notifications
 	silent = false,
+})
+----------------------------------------Highlight cursor words----------------------------------------
+require("nvim-cursorline").setup({
+	disable_filetypes = {},
+	disable_buftypes = {},
+	cursorline = {
+		enable = true,
+		timeout = 1000,
+		number = false,
+	},
+	cursorword = {
+		enable = true,
+		min_length = 3,
+		hl = { underline = true },
+	},
 })
 ----------------------------------------Treesitter----------------------------------------
 vim.pack.add({
