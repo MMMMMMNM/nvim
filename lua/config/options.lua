@@ -9,6 +9,7 @@ opt.termguicolors = true
 opt.confirm = true
 opt.showmode = false
 
+opt.winborder = "single"
 opt.pumblend = 15
 opt.cmdheight = 1
 

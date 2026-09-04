@@ -1,6 +1,11 @@
 {
-  "cout (cout + endl)": {
-    "body": "std::cout<<$1<<std::endl;",
-    "prefix": "cout (cout + endl)"
+  "main": {
+    "body": [
+      "int main(\"{0}\") { ",
+      "    \"{1}\"",
+      "\treturn 0; ",
+      "\t}"
+    ],
+    "prefix": "main"
   }
 }

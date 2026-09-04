@@ -65,11 +65,15 @@ require("blink.cmp").setup({
 		["<C-j>"] = { "scroll_documentation_down", "fallback" },
 		["<C-k>"] = { "scroll_documentation_up", "fallback" },
 	},
-	cmdline = { enabled = true, completion = {
-		menu = {
-			auto_show = true,
+	cmdline = {
+		enabled = true,
+		completion = {
+			ghost_text = { enabled = true },
+			menu = {
+				auto_show = true,
+			},
 		},
-	} },
+	},
 	appearance = {
 		highlight_ns = vim.api.nvim_create_namespace("blink_cmp"),
 		use_nvim_cmp_as_default = false,
@@ -111,6 +115,8 @@ require("blink.cmp").setup({
 		documentation = { auto_show = true },
 		ghost_text = { enabled = true },
 		menu = {
+			border = "single",
+			documentation = { treesitter_highlighting = true, window = { border = nil } },
 			draw = {
 				columns = { { "kind_icon" }, { "label", gap = 1 } },
 				components = {
@@ -141,7 +147,7 @@ require("blink.cmp").setup({
 			},
 		},
 	},
-	signature = { enabled = true },
+	signature = { enabled = true, window = { border = "single" } },
 	sources = {
 		default = {
 			"buffer",
@@ -161,7 +167,10 @@ require("blink.cmp").setup({
 			},
 		},
 	},
+	enabled = function()
+		return not vim.tbl_contains({}, vim.bo.filetype)
+	end,
+	opts_extend = { "sources.default" },
 	fuzzy = { implementation = "prefer_rust_with_warning" },
 	snippets = { preset = "default" },
-	opts_extend = { "sources.default" },
 })
