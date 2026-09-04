@@ -14,6 +14,7 @@ vim.pack.add({
 	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" }, -- diagnostics hint
 	{ src = "https://github.com/j-hui/fidget.nvim" }, -- Lsp status
 })
+
 require("tiny-inline-diagnostic").setup({
 	-- Style preset for diagnostic messages
 	-- Available options:
@@ -256,19 +257,23 @@ require("fidget").setup({
 })
 ----------------------------------------Conform----------------------------------------
 vim.pack.add({ { src = "https://github.com/stevearc/conform.nvim" } })
-require("conform").setup({
-	formatters_by_ft = {
-		["_"] = { "trim_whitespace" },
-		["*"] = { "codespell" },
-		lua = { "stylua" },
-		rust = { "rustfmt", lsp_format = "fallback" },
-		cpp = { "clang-format", args = { "-style=LLVM" } },
-		json = { "clang-format" },
-		asm = { "asmfmt" },
-		markdown = { "mdformat" },
-		python = { "black" },
-		bash = { "beautysh" },
-		zsh = { "beautysh" },
-		cmake = { "cmake_format" },
-	},
+vim.api.nvim_create_autocmd("BufWritePre", {
+	callback = function()
+		require("conform").setup({
+			formatters_by_ft = {
+				["_"] = { "trim_whitespace" },
+				["*"] = { "codespell" },
+				lua = { "stylua" },
+				rust = { "rustfmt", lsp_format = "fallback" },
+				cpp = { "clang-format", args = { "-style=LLVM" } },
+				json = { "clang-format" },
+				asm = { "asmfmt" },
+				markdown = { "mdformat" },
+				python = { "black" },
+				bash = { "beautysh" },
+				zsh = { "beautysh" },
+				cmake = { "cmake_format" },
+			},
+		})
+	end,
 })
