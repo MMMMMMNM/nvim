@@ -257,23 +257,19 @@ require("fidget").setup({
 })
 ----------------------------------------Conform----------------------------------------
 vim.pack.add({ { src = "https://github.com/stevearc/conform.nvim" } })
-vim.api.nvim_create_autocmd("BufWritePre", {
-	callback = function()
-		require("conform").setup({
-			formatters_by_ft = {
-				["_"] = { "trim_whitespace" },
-				["*"] = { "codespell" },
-				lua = { "stylua" },
-				rust = { "rustfmt", lsp_format = "fallback" },
-				cpp = { "clang-format", args = { "-style=LLVM" } },
-				json = { "clang-format" },
-				asm = { "asmfmt" },
-				markdown = { "mdformat" },
-				python = { "black" },
-				bash = { "beautysh" },
-				zsh = { "beautysh" },
-				cmake = { "cmake_format" },
-			},
-		})
-	end,
+require("conform").setup({
+	formatters_by_ft = {
+		["_"] = { "trim_whitespace" },
+		["*"] = { "codespell" },
+		lua = { "stylua" },
+		rust = { "rustfmt", lsp_format = "fallback" },
+		cpp = { "clang-format", args = { "-style=LLVM" } },
+		json = { "clang-format" },
+		asm = { "asmfmt" },
+		markdown = { "mdformat" },
+		python = { "black" },
+		bash = { "beautysh" },
+		zsh = { "beautysh" },
+		cmake = { "cmake_format" },
+	},
 })
