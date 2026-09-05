@@ -68,7 +68,6 @@ require("blink.cmp").setup({
 	cmdline = {
 		enabled = true,
 		completion = {
-			ghost_text = { enabled = true },
 			menu = {
 				auto_show = true,
 			},
