@@ -238,7 +238,6 @@ require("nvim-treesitter").install({
 	"markdown",
 	"python",
 	"vim",
-	"vim-doc",
 })
 require("nvim-treesitter").setup({
 	install_dir = vim.fn.stdpath("data") .. "/site",
@@ -345,3 +344,39 @@ require("lualine").setup({
 	inactive_winbar = {},
 	extensions = {},
 })
+---------------------------------------------------------------------------------------alpa--------------------------------------------------------------------------------------------------
+vim.pack.add({
+	{ src = "https://github.com/goolord/alpha-nvim" },
+	{ src = "https://githuv.com/nvim-tree/nvim-web-devicons" },
+})
+local alpha = require("alpha")
+local dashboard = require("alpha.themes.dashboard")
+
+-- Set header
+dashboard.section.header.val = {
+	"                                                     ",
+	"  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
+	"  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
+	"  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
+	"  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+	"  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+	"  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+	"                                                     ",
+}
+dashboard.section.footer.opts.hl = "Type"
+dashboard.section.header.opts.hl = "Include"
+dashboard.section.buttons.opts.hl = "Keyword"
+-- Set menu
+dashboard.section.buttons.val = {
+	dashboard.button("e", "  > New file", "<CMD>ene <BAR> startinsert <CR>"),
+	dashboard.button("f", "  > Find file", "<CMD>pwd | FzfLua files<CR>"),
+	dashboard.button("r", "  > Recent", ":FzfLua oldfiles<CR>"),
+	dashboard.button("q", "q  > Quit NVIM", "<CMD>qa<CR>"),
+}
+-- Send config to alpha
+alpha.setup(dashboard.opts)
+
+-- Disable folding on alpha buffer
+vim.cmd([[
+    autocmd FileType alpha setlocal nofoldenable
+]])

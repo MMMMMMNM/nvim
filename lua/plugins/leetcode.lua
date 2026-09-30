@@ -12,6 +12,7 @@ require("leetcode").setup({
 
 	---@type lc.lang
 	lang = "cpp",
+	-- cpp c python
 
 	cn = { -- leetcode.cn
 		enabled = true, ---@type boolean
