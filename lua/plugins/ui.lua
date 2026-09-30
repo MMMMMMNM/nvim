@@ -370,6 +370,8 @@ dashboard.section.buttons.opts.hl = "Keyword"
 dashboard.section.buttons.val = {
 	dashboard.button("e", "  > New file", "<CMD>ene <BAR> startinsert <CR>"),
 	dashboard.button("f", "  > Find file", "<CMD>pwd | FzfLua files<CR>"),
+	dashboard.button("p", "p > Plugins", "<CMD>FzfLua packadd<CR>"),
+	dashboard.button("m", "m > Manpages search", "<CMD>FzfLua manpages<CR>"),
 	dashboard.button("r", "  > Recent", ":FzfLua oldfiles<CR>"),
 	dashboard.button("q", "q  > Quit NVIM", "<CMD>qa<CR>"),
 }
