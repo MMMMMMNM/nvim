@@ -372,7 +372,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("f", "  > Find file", "<CMD>pwd | FzfLua files<CR>"),
 	dashboard.button("p", "p > Plugins", "<CMD>FzfLua packadd<CR>"),
 	dashboard.button("m", "m > Manpages search", "<CMD>FzfLua manpages<CR>"),
-	dashboard.button("r", "  > Recent", ":FzfLua oldfiles<CR>"),
+	dashboard.button("r", "  > Recent", "<CMD>FzfLua oldfiles<CR>"),
 	dashboard.button("q", "q  > Quit NVIM", "<CMD>qa<CR>"),
 }
 -- Send config to alpha

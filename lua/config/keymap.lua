@@ -68,7 +68,7 @@ map("n", "grr", "<cmd>FzfLua lsp_references<cr>", { desc = "[G]oto [R]eferences"
 ----------------------------------------FzfLua----------------------------------------
 map("n", "<leader>fll", "<CMD>FzfLua<CR>", { desc = "FzfLua Modle Chose" })
 map("n", "<leader>fm", "<CMD>FzfLua manpages<CR>", { desc = "FzfLua manpages" })
-map("n", "<leader>fp", "<CMD>FzfLua packadd<CR>", { desc = "FzfLua Install PACK List" })
+map("n", "<leader>fp", "<CMD>FzfLua packadd<CR>", { desc = "FzfLua Installed PACK List" })
 map("n", "<leader>ff", "<CMD>FzfLua files<CR>", { desc = "FzfLua Files" })
 map("n", "<leader>fb", "<CMD>FzfLua buffers<CR>", { desc = "FzfLua Buffers" })
 map("n", "<leader>f?", "<CMD>FzfLua helptags<CR>", { desc = "FzfLua Helptags" })
