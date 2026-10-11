@@ -2,8 +2,8 @@ local map = function(Mode, Key, Cmd, Desc)
 	vim.keymap.set(Mode, Key, Cmd, Desc)
 end
 ----------------------------------------Split config----------------------------------------
-map("n", "<leader>ow", "<cmd>vsplit<cr>", { desc = " Vsplit" }) -- vsplit
-map("n", "<leader>os", "<cmd>split<cr>", { desc = " Split" }) -- split
+map("n", "<leader>osw", "<cmd>vsplit<cr>", { desc = " Vsplit" }) -- vsplit
+map("n", "<leader>oss", "<cmd>split<cr>", { desc = " Split" }) -- split
 ----------------------------------------Buffer----------------------------------------
 map("n", "<leader>obd", "<cmd>BufferDelete<cr>", { desc = "Buffer Delete" })
 map("n", "<leader>obl", "<cmd>BufferPickDelete<cr>", { desc = "Buffer Pick Delete" })
@@ -26,6 +26,8 @@ map({ "n", "i", "v" }, "<C-k>", "<C-w>k")
 map({ "n", "i", "v" }, "<C-j>", "<C-w>j")
 map({ "n", "i", "v" }, "<C-l>", "<C-w>l")
 map({ "n", "i", "v" }, "<C-h>", "<C-w>h")
+----------------------------------------Outline----------------------------------------
+map("n", "<leader>oj", "<cmd>TSJToggle<cr>", { desc = "splitting/joining blocks of code" })
 ----------------------------------------Outline----------------------------------------
 map("n", "<leader>oa", "<cmd>AerialToggle!<CR>", { desc = "Outline" })
 ----------------------------------------Flash----------------------------------------
@@ -55,7 +57,7 @@ map({ "n", "x" }, "<leader>sa", function()
 end, { desc = "Snippet: Add" })
 ------------------------------------------Explorer----------------------------------------
 map("n", "<leader>e", "<cmd>Neotree<cr>", { desc = "Neo-tree" })
-map("n", "<leader>-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+--map("n", "<leader>-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 ----------------------------------------lsp----------------------------------------
 map("n", "gD", "<CMD>FzfLua lsp_declarations<CR>", { desc = "[G]oto [D]eclaration" })
 map("n", "gd", "<CMD>FzfLua lsp_definitions<CR>", { desc = "[G]oto [D]efinition" })

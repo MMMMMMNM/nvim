@@ -5,8 +5,14 @@ vim.pack.add({
 	{ src = "https://github.com/theHamsta/nvim-dap-virtual-text" },
 	{ src = "https://github.com/Jorenar/nvim-dap-disasm" },
 })
-require("nvim-dap-virtual-text").setup()
+
 local dap, dapui = require("dap"), require("dapui")
+require("nvim-dap-virtual-text").setup()
+
+vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapLogPoint", { text = "", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "", linehl = "", numhl = "" })
 dapui.setup({
 	layouts = {
 		{
@@ -29,11 +35,7 @@ dapui.setup({
 		},
 	},
 })
-vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "", linehl = "", numhl = "" })
-vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "", linehl = "", numhl = "" })
-vim.fn.sign_define("DapLogPoint", { text = "", texthl = "", linehl = "", numhl = "" })
-vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "", linehl = "", numhl = "" })
-dapui.setup()
+
 dap.listeners.before.attach.dapui_config = function()
 	dapui.open()
 end

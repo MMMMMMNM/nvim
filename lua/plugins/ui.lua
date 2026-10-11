@@ -92,6 +92,7 @@ require("colorful-winsep").setup({
 	border = "bold",
 	excluded_ft = { "packer", "TelescopePrompt", "mason" },
 	highlight = nil, -- nil|string|function. See the docs's Highlights section
+	colors = { "#7e6c9c" },
 	animate = {
 		---@type "shift"|"progressive"|false
 		enabled = "progressive", -- false to disable or choose a option below (e.g. "shift") and set option for it if needed
@@ -371,7 +372,8 @@ dashboard.section.buttons.val = {
 	dashboard.button("e", "  > New file", "<CMD>ene <BAR> startinsert <CR>"),
 	dashboard.button("f", "  > Find file", "<CMD>pwd | FzfLua files<CR>"),
 	dashboard.button("p", "p > Plugins", "<CMD>FzfLua packadd<CR>"),
-	dashboard.button("m", "m > Manpages search", "<CMD>FzfLua manpages<CR>"),
+	-- dashboard.button("m", "m > Manpages search", "<CMD>FzfLua manpages<CR>"),
+	dashboard.button("g", " > lazygit", "<CMD>LazyGit<CR>"),
 	dashboard.button("r", "  > Recent", "<CMD>FzfLua oldfiles<CR>"),
 	dashboard.button("q", "q  > Quit NVIM", "<CMD>qa<CR>"),
 }
