@@ -3,9 +3,9 @@
     "snippets": [
       {
         "language": [
-          "cpp"
+          "lua"
         ],
-        "path": "./cpp.json"
+        "path": "./lua.json"
       }
     ]
   },

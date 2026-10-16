@@ -8,6 +8,7 @@ vim.pack.add({
 	{ src = "https://github.com/RaafatTurki/hex.nvim" }, --show file helix
 	{ src = "https://github.com/stevearc/aerial.nvim" }, -- code outline
 	{ src = "https://github.com/Wansmer/treesj" }, --splitting/joining blocks of code
+	{ src = "https://github.com/rmagatti/auto-session" }, --session manager
 })
 ----------------------------------------Flash----------------------------------------
 require("flash").setup()
@@ -147,7 +148,7 @@ res.setup({
 		end,
 	},
 })
-------------------------------------------splitting/joining blocks of code
+------------------------------------------splitting/joining blocks of code----------------------------------------
 require("treesj").setup({
 	---@type boolean Use default keymaps (<space>m - toggle, <space>j - join, <space>s - split)
 	use_default_keymaps = false,
@@ -170,4 +171,23 @@ require("treesj").setup({
 	on_error = nil,
 	---@type table Presets for languages
 	langs = { lua = {}, cpp = {}, c = {} }, -- See the default presets in lua/treesj/langs
+})
+------------------------------------------automated session management----------------------------------------
+require("auto-session").setup({
+	-- The following are already the default values, no need to provide them if these are already the settings you want.
+	allowed_dirs = { "~/local/share/nvim/site/session/" },
+	session_lens = {
+		picker = "fzf", -- "telescope"|"snacks"|"fzf"|"select"|nil Pickers are detected automatically but you can also manually choose one. Falls back to vim.ui.select
+		mappings = {
+			-- Mode can be a string or a table, e.g. {"i", "n"} for both insert and normal mode
+			delete_session = { "i", "<C-d>" },
+			alternate_session = { "i", "<C-s>" },
+			copy_session = { "i", "<C-y>" },
+		},
+
+		picker_opts = {
+			height = 0.8,
+			width = 0.50,
+		},
+	},
 })

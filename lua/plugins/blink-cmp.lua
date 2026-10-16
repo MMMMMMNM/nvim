@@ -53,7 +53,31 @@ require("colorful-menu").setup({
 	fallback_highlight = "@variable",
 	max_width = 60,
 })
-require("scissors").setup({ snippetDir = "~/.config/nvim/snippets" })
+require("scissors").setup({
+	-- "${num:'tip'}"
+	snippetDir = "~/.config/nvim/snippets",
+	snippetSelection = {
+		picker = "fzf-lua", ---@type "auto"|"fzf-lua"|"telescope"|"snacks"|"vim.ui.select"
+
+		--- @module 'fzf-lua'
+		fzfLua = {
+			-- same format as fzf_opts in `:h fzf-lua-customization`
+			fzf_opts = {},
+
+			-- suppress warnings from fzf-lua.
+			-- This is true by default, since commonly-used fzf-lua presets
+			-- create warnings due to border settings.
+			silent = true,
+
+			-- same format as winopts in `:h fzf-lua-customization`
+			winopts = {
+				preview = {
+					hidden = false,
+				},
+			},
+		},
+	},
+})
 require("blink.cmp").setup({
 	keymap = {
 		["<CR>"] = { "select_and_accept", "fallback" },
