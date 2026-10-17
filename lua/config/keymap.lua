@@ -26,7 +26,7 @@ map({ "n", "i", "v" }, "<C-k>", "<C-w>k")
 map({ "n", "i", "v" }, "<C-j>", "<C-w>j")
 map({ "n", "i", "v" }, "<C-l>", "<C-w>l")
 map({ "n", "i", "v" }, "<C-h>", "<C-w>h")
-----------------------------------------Outline----------------------------------------
+----------------------------------------Splitting/Joining blocks of code----------------------------------------
 map("n", "<leader>oj", "<cmd>TSJToggle<cr>", { desc = "splitting/joining blocks of code" })
 ----------------------------------------Outline----------------------------------------
 map("n", "<leader>oa", "<cmd>AerialToggle!<CR>", { desc = "Outline" })
