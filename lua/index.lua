@@ -1,4 +1,4 @@
-require("plugins.extra") -- function install and setup
+require("plugins.extra") -- extra plugins install and setup
 require("plugins.blink-cmp")
 require("plugins.ai") -- ai setup
 require("plugins.lsp_and_format") -- lsp and format

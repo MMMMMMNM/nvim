@@ -77,8 +77,8 @@ require("notify").setup({
 	},
 	level = 2,
 	minimum_width = 50,
-	render = "default",
-	stages = "fade_in_slide_out",
+	render = "wrapped-compact",
+	stages = "slide",
 	time_formats = {
 		notification = "%T",
 		notification_history = "%FT%T",
@@ -380,7 +380,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("p", "p > Plugins", "<CMD>FzfLua packadd<CR>"),
 	-- dashboard.button("m", "m > Manpages search", "<CMD>FzfLua manpages<CR>"),
 	dashboard.button("g", " > lazygit", "<CMD>LazyGit<CR>"),
-	dashboard.button("p", " > persistence", "<CMD>AutoSession search<CR>"),
+	dashboard.button("s", " > persistence", "<CMD>AutoSession search<CR>"),
 	dashboard.button("r", "  > Recent", "<CMD>FzfLua oldfiles<CR>"),
 	dashboard.button("q", "q  > Quit NVIM", "<CMD>qa<CR>"),
 }
